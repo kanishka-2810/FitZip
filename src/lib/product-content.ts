@@ -67,12 +67,12 @@ export const PRODUCT_CONTENT: Record<string, ProductContent> = {
       { q: "What if I'm dealing with real pain or an injury?", a: "This is not medical advice. If you have a serious injury, talk to a qualified professional first." },
     ],
     reviews: [
-      { name: "Mark R.", stars: 5, text: "First week in and my back pain is already 70% gone. This is the real deal." },
-      { name: "Sarah T.", stars: 5, text: "Finally a program that actually fits into my day. 15 minutes and I feel incredible." },
-      { name: "James W.", stars: 5, text: "I'm 52 and I feel better than I did at 40. Wish I found this sooner." },
-      { name: "Linda K.", stars: 5, text: "The visuals make it so easy to follow. No confusion, just results." },
-      { name: "David M.", stars: 5, text: "Bought this for my dad. He's moving better than he has in years." },
-      { name: "Amy S.", stars: 5, text: "Week 2 update — knees feel amazing. The quick fix routines are gold." },
+      { name: "Zachary G.", stars: 5, text: "Thanks for the great videos, ebooks, and well-spaced emails. You're not spamming — you're actually delivering value every time. I genuinely appreciate what you're doing." },
+      { name: "Michael R.", stars: 5, text: "The ebook presents each exercise in a way that's really straightforward to follow. The body diagrams with highlighted focus areas are well done. Low impact but genuinely effective for getting mobility back." },
+      { name: "David K.", stars: 5, text: "Notifications are always on for this channel. The content keeps getting better and the ebook took everything to the next level for me. Trying to hit 10,000 steps a day now because of the advice here." },
+      { name: "Ryan T.", stars: 5, text: "Bought the program Friday night, read the whole PDF by Saturday morning. Clean layout, no filler, every exercise has a real reason behind it. Best money I've spent on fitness in years." },
+      { name: "Sandra M.", stars: 5, text: "Three weeks in and my lower back pain is basically gone. Was skeptical about bodyweight-only but the progression is smart — it actually builds on itself week by week. Didn't expect this." },
+      { name: "Pete H.", stars: 5, text: "I've bought programs from big-name trainers that were overpriced and hollow. This is the opposite. No gym, no equipment, and I'm seeing more progress than I did in 6 months at the gym." },
     ],
   },
 

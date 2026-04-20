@@ -24,11 +24,11 @@ export default async function Home() {
     <>
       <Hero />
       <ProductsSection dbProducts={dbProducts} />
-      <YoutubeSection />
       <TestimonialsSection />
+      <NewsletterSection />
+      <YoutubeSection />
       <OurStorySection />
       <BlogsSection />
-      <NewsletterSection />
       <Footer />
     </>
   );

@@ -35,7 +35,7 @@ export default function NewsletterSection() {
           className="text-white/50 text-sm md:text-base mb-10 max-w-xl mx-auto leading-relaxed"
           style={{ fontFamily: "var(--font-montserrat), sans-serif" }}
         >
-          Get free weekly tips on bodyweight training, joint health, and nutrition — straight to your inbox. No spam. Unsubscribe anytime.
+          Get free fitness tips and strategies — straight to your inbox. No spam. Unsubscribe anytime.
         </p>
 
         {/* CTA Button */}

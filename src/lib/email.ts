@@ -22,7 +22,7 @@ const createTransporter = () => {
 };
 
 // ─── Admin sales notification email ──────────────────────────────────────────
-function buildAdminSaleEmail(customerEmail: string, productName: string, amount: number) {
+function _buildAdminSaleEmail(customerEmail: string, productName: string, amount: number) {
   return `
 <!DOCTYPE html>
 <html lang="en">
@@ -260,16 +260,16 @@ export async function sendPurchaseConfirmationEmail(
   console.log(`[email] Download link sent to ${customerEmail}`);
 
   // 2. Eric's sales notification — non-critical, never block customer delivery
-  try {
-    await transporter.sendMail({
-      from: `"FitZip Sales" <${process.env.CONTACT_EMAIL}>`,
-      to: process.env.CONTACT_EMAIL,
-      subject: `💰 New Sale — ${productName} ($${amount.toFixed(2)})`,
-      html: buildAdminSaleEmail(customerEmail, productName, amount),
-    });
-    console.log(`[email] Sale notification sent to admin`);
-  } catch (err) {
-    // Log but don't rethrow — customer already received their download link
-    console.error(`[email] Admin notification failed (non-critical):`, err);
-  }
+  // try {
+  //   await transporter.sendMail({
+  //     from: `"FitZip Sales" <${process.env.CONTACT_EMAIL}>`,
+  //     to: process.env.CONTACT_EMAIL,
+  //     subject: `💰 New Sale — ${productName} ($${amount.toFixed(2)})`,
+  //     html: buildAdminSaleEmail(customerEmail, productName, amount),
+  //   });
+  //   console.log(`[email] Sale notification sent to admin`);
+  // } catch (err) {
+  //   // Log but don't rethrow — customer already received their download link
+  //   console.error(`[email] Admin notification failed (non-critical):`, err);
+  // }
 }
