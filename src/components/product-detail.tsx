@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/footer";
@@ -107,6 +107,52 @@ export default function ProductDetail({ product }: { product: ProductData }) {
   ];
   const [activeImage, setActiveImage] = useState<string>(product.image);
 
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const pausedRef = useRef(false);
+  const rafRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const speed = 0.9;
+    const step = () => {
+      if (!pausedRef.current && el) {
+        el.scrollLeft += speed;
+        if (el.scrollLeft >= el.scrollWidth / 2) el.scrollLeft = 0;
+      }
+      rafRef.current = requestAnimationFrame(step);
+    };
+    rafRef.current = requestAnimationFrame(step);
+
+    let startX = 0;
+    let startY = 0;
+
+    const onTouchStart = (e: TouchEvent) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      const dx = Math.abs(e.touches[0].clientX - startX);
+      const dy = Math.abs(e.touches[0].clientY - startY);
+      if (dx > dy) pausedRef.current = true;
+    };
+
+    const onTouchEnd = () => { pausedRef.current = false; };
+
+    el.addEventListener("touchstart", onTouchStart, { passive: true });
+    el.addEventListener("touchmove", onTouchMove, { passive: true });
+    el.addEventListener("touchend", onTouchEnd, { passive: true });
+
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      el.removeEventListener("touchstart", onTouchStart);
+      el.removeEventListener("touchmove", onTouchMove);
+      el.removeEventListener("touchend", onTouchEnd);
+    };
+  }, []);
+
   const handleAddToCart = () => {
     addItem({
       productId: product._id,
@@ -118,9 +164,6 @@ export default function ProductDetail({ product }: { product: ProductData }) {
       upsellOffer: product.upsellOffer,
     });
   };
-
-  // Duplicate reviews for infinite scroll
-  const reviewLoop = [...product.reviews, ...product.reviews];
 
   return (
     <>
@@ -276,32 +319,57 @@ export default function ProductDetail({ product }: { product: ProductData }) {
         </div>
       </section>
 
-      {/* ── REVIEWS TICKER ── */}
-      <section className="w-full bg-black border-y-4 border-black overflow-hidden py-6">
+      {/* ── REVIEWS GRID ── */}
+      <section className="w-full bg-black border-y-4 border-black py-12 md:py-16 px-4 md:px-8">
         <p
-          className="text-center text-white/30 text-[10px] font-black uppercase tracking-widest mb-4"
+          className="text-center text-white text-[10px] font-black uppercase tracking-widest mb-2"
           style={{ fontFamily: "var(--font-montserrat)" }}
         >
-          What People Are Saying
+          ✦ What People Are Saying ✦
         </p>
-        <div className="flex animate-marquee whitespace-nowrap gap-0">
-          {reviewLoop.map((r, i) => (
+        <h2
+          className="text-center text-white text-2xl md:text-4xl font-black uppercase mb-10"
+          style={{ fontFamily: "var(--font-poppins)" }}
+        >
+          Real Results,{" "}
+          <span className="text-[#CC0000]">Real People</span>
+        </h2>
+        {/* Mobile: auto-scroll + touch drag */}
+        <div
+          ref={scrollRef}
+          className="flex sm:hidden overflow-x-auto gap-4 pb-2 scrollbar-hide"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
+          {[...product.reviews, ...product.reviews].map((r, i) => (
             <div
               key={i}
-              className="inline-flex flex-col bg-white border-2 border-black mx-3 p-4 rounded-xl shrink-0 w-72"
-              style={{ whiteSpace: "normal" }}
+              className="flex flex-col bg-white border-[3px] border-white/20 rounded-2xl p-5 shrink-0 w-[80vw]"
+              style={{ boxShadow: "4px 4px 0px #CC0000" }}
             >
               <Stars count={r.stars} />
-              <p
-                className="text-xs text-black/70 mt-2 leading-relaxed line-clamp-2"
-                style={{ fontFamily: "var(--font-montserrat)" }}
-              >
-                {r.text}
+              <p className="text-sm text-black/70 mt-3 leading-relaxed flex-1" style={{ fontFamily: "var(--font-montserrat)" }}>
+                &ldquo;{r.text}&rdquo;
               </p>
-              <p
-                className="text-[10px] font-black uppercase tracking-widest text-black/40 mt-2"
-                style={{ fontFamily: "var(--font-montserrat)" }}
-              >
+              <p className="text-[10px] font-black uppercase tracking-widest text-black/40 mt-4 pt-3 border-t border-black/10" style={{ fontFamily: "var(--font-montserrat)" }}>
+                — {r.name}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Tablet + Desktop: grid */}
+        <div className="hidden sm:grid max-w-6xl mx-auto grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {product.reviews.map((r, i) => (
+            <div
+              key={i}
+              className="flex flex-col bg-white border-[3px] border-white/20 rounded-2xl p-5 md:p-6"
+              style={{ boxShadow: "4px 4px 0px #CC0000" }}
+            >
+              <Stars count={r.stars} />
+              <p className="text-sm text-black/70 mt-3 leading-relaxed flex-1" style={{ fontFamily: "var(--font-montserrat)" }}>
+                &ldquo;{r.text}&rdquo;
+              </p>
+              <p className="text-[10px] font-black uppercase tracking-widest text-black/40 mt-4 pt-3 border-t border-black/10" style={{ fontFamily: "var(--font-montserrat)" }}>
                 — {r.name}
               </p>
             </div>

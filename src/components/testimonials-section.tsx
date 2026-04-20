@@ -115,7 +115,7 @@ export default function TestimonialsSection() {
   const reviews = active === "youtube" ? YOUTUBE_REVIEWS : PRODUCT_REVIEWS;
 
   return (
-    <section className="w-full bg-white pt-6 pb-16 md:pt-8 md:pb-24">
+    <section className="w-full bg-white pt-16 pb-16 md:pt-24 md:pb-24">
       {/* Heading */}
       <div className="text-center px-4 mb-10 md:mb-14">
         <h2

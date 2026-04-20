@@ -20,7 +20,7 @@ const BELIEFS = [
   {
     number: "02",
     title: "Joint Health Comes First",
-    body: "Soreness isn't a badge of honour. FitZip builds every program around protecting your joints so you can train for life — not just for the next 30 days.",
+    body: "Soreness isn't a badge of honor. FitZip builds every program around protecting your joints so you can train for life — not just for the next 30 days.",
   },
   {
     number: "03",
@@ -36,7 +36,7 @@ const BELIEFS = [
 
 const STATS = [
   ["228K+", "YouTube Subscribers"],
-  ["159+", "Videos Published"],
+  ["160+", "Videos Published"],
   ["22M+", "Total Views"],
   ["3 Yrs+", "Full-Time Creator"],
 ];
@@ -79,10 +79,10 @@ export default function AboutPage() {
               className="text-white/60 text-sm md:text-base mt-6 max-w-lg mx-auto"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
-              Full-time fitness brand. Bodyweight movement coaching. The brand that made 228,000 people realize they never needed a gym.
+              Full-time fitness brand. Functional fitness coaching. The brand that made 228,000 people look and feel the way they wanted without needing a bunch of equipments.
             </p>
           </div>
-        </div>
+        </div> 
 
         {/* Ticker */}
         <div className="bg-black border-t-4 border-black overflow-hidden py-2.5 md:py-4">
@@ -105,40 +105,19 @@ export default function AboutPage() {
       <section className="w-full bg-white border-b-4 border-black py-14 md:py-24 px-4 md:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
 
-          {/* Image placeholder */}
+          {/* Image */}
           <div
-            className="relative w-full aspect-[3/4] bg-[#f5f5f5] border-[3px] border-black rounded-2xl overflow-hidden"
+            className="relative w-full max-w-120 mx-auto md:mx-0 aspect-square border-[3px] border-black rounded-2xl overflow-hidden"
             style={{ boxShadow: "8px 8px 0px #000000" }}
           >
             <Image
-              src="/eric-rooney.jpg"
+              src="/logo/fitzip-logo.png"
               alt="FitZip — Fitness Brand"
               fill
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 480px"
               className="object-cover"
+              priority
             />
-            {/* Fallback label shown when image is missing */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 pointer-events-none">
-              <div className="w-16 h-16 bg-black/10 border-2 border-black/20 rounded-full flex items-center justify-center">
-                <svg className="w-8 h-8 text-black/20" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                </svg>
-              </div>
-              <p
-                className="text-black/20 text-xs font-black uppercase tracking-widest"
-                style={{ fontFamily: "var(--font-montserrat)" }}
-              >
-                Photo Coming Soon
-              </p>
-            </div>
-
-            {/* Tag */}
-            <span
-              className="absolute top-4 left-4 bg-[#CC0000] text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 border-2 border-black"
-              style={{ fontFamily: "var(--font-montserrat)", boxShadow: "3px 3px 0px #000000" }}
-            >
-              Founder & Coach
-            </span>
           </div>
 
           {/* Bio */}
@@ -182,7 +161,7 @@ export default function AboutPage() {
             </p>
 
             <div className="flex flex-wrap gap-2 pt-1">
-              {["Bodyweight Coach", "Movement Science", "Joint Health", "Full-Time Creator", "US-Based"].map((tag) => (
+              {["Functional Fitness", "Movement Science", "Joint Health", "Full-Time Creator", "US-Based"].map((tag) => (
                 <span
                   key={tag}
                   className="text-[10px] font-black uppercase tracking-wider bg-black/5 border border-black/15 px-3 py-1 text-black/50"
@@ -327,7 +306,7 @@ export default function AboutPage() {
                 className="text-white/70 text-xs uppercase tracking-widest mb-4"
                 style={{ fontFamily: "var(--font-montserrat)" }}
               >
-                @fitzip · 228K+ subscribers · 159 videos
+                @fitzip · 228K+ subscribers · 160+ videos
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-2">
                 {["New videos every week", "Science-backed content", "100% free"].map((pill) => (

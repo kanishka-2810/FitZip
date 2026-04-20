@@ -65,7 +65,7 @@ export default function YoutubeSection() {
           className="text-black/50 text-sm md:text-base mt-2"
           style={{ fontFamily: "var(--font-montserrat), sans-serif" }}
         >
-          228K subscribers · Free workouts every week
+          228K subscribers · Free videos every week
         </p>
       </div>
 

@@ -52,10 +52,9 @@ export default function BlogsSection() {
               style={{ aspectRatio: "16/10" }}
             >
               <p
-                className="text-white font-black uppercase select-none leading-none"
+                className="text-white font-black uppercase select-none leading-none text-[56px] md:text-[clamp(36px,9vw,80px)]"
                 style={{
                   fontFamily: "var(--font-poppins), sans-serif",
-                  fontSize: "clamp(36px, 9vw, 80px)",
                   fontWeight: 900,
                 }}
               >
