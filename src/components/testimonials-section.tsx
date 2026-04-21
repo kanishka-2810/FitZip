@@ -87,7 +87,7 @@ const PRODUCT_REVIEWS = [
     name: "Pete H.",
     handle: "@peteh_strong",
     rating: 5,
-    text: "I've bought programs from big-name trainers that were overpriced and hollow. This is the opposite. No gym, no equipment, and I'm seeing more progress than I did in 6 months at the gym.",
+    text: "Wasn't sure what to expect but gave it a shot. Two months in and my knees don't ache after workouts anymore. Simple movements, clear instructions. Worth it.",
     tag: "Workout Program",
   },
 ];

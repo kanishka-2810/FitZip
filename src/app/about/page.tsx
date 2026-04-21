@@ -79,7 +79,7 @@ export default function AboutPage() {
               className="text-white/60 text-sm md:text-base mt-6 max-w-lg mx-auto"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
-              Full-time fitness brand. Functional fitness coaching. The brand that made 228,000 people look and feel the way they wanted without needing a bunch of equipments.
+              Full-time fitness brand. Functional fitness coaching. The brand that made 228,000 people look and feel the way they wanted without needing a bunch of equipment.
             </p>
           </div>
         </div> 
@@ -187,7 +187,7 @@ export default function AboutPage() {
                 {stat}
               </p>
               <p
-                className="text-white/40 text-[10px] uppercase tracking-widest mt-1"
+                className="text-white text-[10px] uppercase tracking-widest mt-1"
                 style={{ fontFamily: "var(--font-montserrat)" }}
               >
                 {label}
