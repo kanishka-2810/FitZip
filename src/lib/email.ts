@@ -192,7 +192,6 @@ function buildPurchaseEmail(productName: string, downloadUrl: string) {
             <p style="margin:0 0 12px;font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:${brand.mutedText}">DOWNLOAD INSTRUCTIONS</p>
             <ul style="margin:0 0 28px;padding-left:20px;font-size:14px;color:${brand.mutedText};line-height:1.7">
               <li>Click the download button above to access your file</li>
-              <li>The download link will remain active for 24 hours</li>
               <li>Save the file to your device for offline access</li>
               <li>If you have any issues, contact our support team</li>
             </ul>

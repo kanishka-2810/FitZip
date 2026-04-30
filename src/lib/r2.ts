@@ -26,7 +26,7 @@ const s3Client = new S3Client({
 
 export async function generateDownloadUrl(
   fileKey: string,
-  expiresIn: number = 24 * 60 * 60, // 24 hours - 1 day
+  // expiresIn: number = 24 * 60 * 60, // 24 hours - 1 day
 ): Promise<string> {
   try {
     const command = new GetObjectCommand({
@@ -34,7 +34,7 @@ export async function generateDownloadUrl(
       Key: fileKey,
     });
 
-    const signedUrl = await getSignedUrl(s3Client, command, { expiresIn });
+    const signedUrl = await getSignedUrl(s3Client, command, /* { expiresIn } */);
     return signedUrl;
   } catch (error) {
     console.error("Failed to generate download URL:", error);

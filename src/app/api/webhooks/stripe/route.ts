@@ -36,14 +36,20 @@ export async function POST(request: NextRequest) {
 
     await dbConnect();
 
+    console.log(`Received webhook event: ${event.type}`);
+
     // Handle checkout.session.completed
     if (event.type === "checkout.session.completed") {
       const session = event.data.object as Stripe.Checkout.Session;
+
+      console.log(`Processing checkout session: ${session.id}`);
 
       // Find all orders with this session ID
       const orders = await Order.find({ stripeSessionId: session.id }).populate(
         "product",
       );
+
+      console.log(`Found ${orders.length} orders for session ${session.id}`);
 
       if (orders.length === 0) {
         console.warn(`No orders found for session ${session.id}`);
@@ -53,6 +59,10 @@ export async function POST(request: NextRequest) {
       // Process each order
       for (const order of orders) {
         try {
+          console.log(
+            `Processing order ${order._id} with status ${order.paymentStatus}`,
+          );
+
           const product = order.product as IProduct; // Populated product
 
           if (!product || !product.fileName) {
@@ -66,10 +76,12 @@ export async function POST(request: NextRequest) {
           const downloadUrl = await generateDownloadUrl(product.fileName);
 
           // Update order with the stored file name instead of a long-lived URL
+          console.log(`Updating order ${order._id} to completed status`);
           await Order.findByIdAndUpdate(order._id, {
             paymentStatus: "completed",
             downloadFileName: product.fileName,
           });
+          console.log(`Successfully updated order ${order._id}`);
 
           // Send confirmation email + admin notification
           await sendPurchaseConfirmationEmail(
