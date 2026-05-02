@@ -22,7 +22,11 @@ const createTransporter = () => {
 };
 
 // ─── Admin sales notification email ──────────────────────────────────────────
-function _buildAdminSaleEmail(customerEmail: string, productName: string, amount: number) {
+function _buildAdminSaleEmail(
+  customerEmail: string,
+  productName: string,
+  amount: number,
+) {
   return `
 <!DOCTYPE html>
 <html lang="en">

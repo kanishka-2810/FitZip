@@ -4,7 +4,6 @@ import stripe from "@/lib/stripe";
 import Order from "@/model/Order";
 import type { IProduct } from "@/model/Product";
 import { sendPurchaseConfirmationEmail } from "@/lib/email";
-import { generateDownloadUrl } from "@/lib/r2";
 import Stripe from "stripe";
 
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
@@ -72,16 +71,17 @@ export async function POST(request: NextRequest) {
             continue;
           }
 
-          // Generate signed download URL from the stored file name
-          const downloadUrl = await generateDownloadUrl(product.fileName);
-
-          // Update order with the stored file name instead of a long-lived URL
+          // Update order with completed status and file name
           console.log(`Updating order ${order._id} to completed status`);
           await Order.findByIdAndUpdate(order._id, {
             paymentStatus: "completed",
             downloadFileName: product.fileName,
           });
           console.log(`Successfully updated order ${order._id}`);
+
+          // Build a permanent download link — the API route verifies payment and generates a fresh presigned URL on demand
+          const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? "https://fittzip.com";
+          const downloadUrl = `${baseUrl}/api/download?orderId=${order._id}`;
 
           // Send confirmation email + admin notification
           await sendPurchaseConfirmationEmail(
