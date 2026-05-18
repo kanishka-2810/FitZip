@@ -305,9 +305,9 @@ export default function ProductDetail({ product }: { product: ProductData }) {
             <div className="flex items-center justify-center gap-6 pt-1">
               {["Instant Download", "PDF Format", "No Gym Needed"].map((t) => (
                 <div key={t} className="flex items-center gap-1.5">
-                  <span className="text-[#CC0000] text-xs">✓</span>
+                  <span className="text-[#CC0000] text-lg">✓</span>
                   <span
-                    className="text-[10px] text-black/50 font-black uppercase tracking-wider"
+                    className="text-[13px] text-black/50 font-black uppercase tracking-wider"
                     style={{ fontFamily: "var(--font-montserrat)" }}
                   >
                     {t}
@@ -388,7 +388,7 @@ export default function ProductDetail({ product }: { product: ProductData }) {
             <span className="bg-[#CC0000] text-white px-2">Inside</span>
           </h2>
           <p
-            className="text-center text-black/40 text-sm mb-12"
+            className="text-center text-black/50 text-medium mb-12 font-semibold"
             style={{ fontFamily: "var(--font-montserrat)" }}
           >
             Everything included in your download
@@ -432,7 +432,7 @@ export default function ProductDetail({ product }: { product: ProductData }) {
               Add To Cart — ${product.price} →
             </button>
             <p
-              className="text-black/30 text-[10px] uppercase tracking-widest mt-3"
+              className="text-black/50 text-[13px] uppercase tracking-widest mt-3 font-semibold"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               * Digital product delivered via email. No physical item.

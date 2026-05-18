@@ -35,7 +35,8 @@ export default function NewsletterSection() {
           className="text-white text-sm md:text-base mb-10 max-w-xl mx-auto leading-relaxed"
           style={{ fontFamily: "var(--font-montserrat), sans-serif" }}
         >
-          Get free fitness tips and strategies — straight to your inbox. No spam. Unsubscribe anytime.
+          Get free fitness tips and strategies — straight to your inbox. No
+          spam. Unsubscribe anytime.
         </p>
 
         {/* CTA Button */}
@@ -52,7 +53,8 @@ export default function NewsletterSection() {
             (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
           }}
           onMouseLeave={(e) => {
-            (e.currentTarget as HTMLAnchorElement).style.boxShadow = "5px 5px 0px #000000";
+            (e.currentTarget as HTMLAnchorElement).style.boxShadow =
+              "5px 5px 0px #000000";
           }}
         >
           Subscribe Free
@@ -63,7 +65,11 @@ export default function NewsletterSection() {
             strokeWidth={2.5}
             viewBox="0 0 24 24"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M5 12h14M12 5l7 7-7 7"
+            />
           </svg>
         </Link>
 
@@ -72,7 +78,7 @@ export default function NewsletterSection() {
           className="text-white text-xs md:text-sm mt-6"
           style={{ fontFamily: "var(--font-montserrat), sans-serif" }}
         >
-          Join 228K+ readers training smarter every week
+          Join 230K+ readers training smarter every week
         </p>
       </div>
     </section>
