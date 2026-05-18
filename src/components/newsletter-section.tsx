@@ -14,7 +14,7 @@ export default function NewsletterSection() {
       <div className="max-w-3xl mx-auto text-center">
         {/* Eyebrow */}
         <span
-          className="inline-block text-[#CC0000] text-xs md:text-sm font-black uppercase tracking-widest mb-4"
+          className="inline-block text-white text-xs md:text-sm font-black uppercase tracking-widest mb-4"
           style={{ fontFamily: "var(--font-montserrat), sans-serif" }}
         >
           Free Weekly Newsletter
@@ -32,7 +32,7 @@ export default function NewsletterSection() {
 
         {/* Subtext */}
         <p
-          className="text-white/50 text-sm md:text-base mb-10 max-w-xl mx-auto leading-relaxed"
+          className="text-white text-sm md:text-base mb-10 max-w-xl mx-auto leading-relaxed"
           style={{ fontFamily: "var(--font-montserrat), sans-serif" }}
         >
           Get free fitness tips and strategies — straight to your inbox. No
@@ -75,7 +75,7 @@ export default function NewsletterSection() {
 
         {/* Social proof */}
         <p
-          className="text-white/30 text-xs md:text-sm mt-6"
+          className="text-white text-xs md:text-sm mt-6"
           style={{ fontFamily: "var(--font-montserrat), sans-serif" }}
         >
           Join 230K+ readers training smarter every week

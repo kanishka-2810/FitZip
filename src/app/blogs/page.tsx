@@ -334,8 +334,8 @@ export default function BlogsPage() {
             className="text-black/50 text-sm md:text-base mb-8 max-w-md mx-auto"
             style={{ fontFamily: "var(--font-montserrat)" }}
           >
-            Join thousands getting free weekly fitness tips, movement science,
-            and no-gym workouts every week.
+            Join thousands getting free weekly fitness tips and movement science,
+            every week.
           </p>
           <Link
             href="https://fitzip-newsletter-069955.beehiiv.com/subscribe"

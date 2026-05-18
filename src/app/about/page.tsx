@@ -187,7 +187,7 @@ export default function AboutPage() {
                 {stat}
               </p>
               <p
-                className="text-white/40 text-[10px] uppercase tracking-widest mt-1"
+                className="text-white text-[10px] uppercase tracking-widest mt-1"
                 style={{ fontFamily: "var(--font-montserrat)" }}
               >
                 {label}
