@@ -8,42 +8,42 @@ const YOUTUBE_REVIEWS = [
     handle: "@justinbrink7425",
     rating: 5,
     text: "I'm not gonna lie — these workouts are HIGHLY underrated. I've been lifting for years and this still helped me. Don't sleep on this channel.",
-    tag: "228K Community",
+    tag: "230K Community",
   },
   {
     name: "Barbara B.",
     handle: "@barbarabellay466",
     rating: 5,
     text: "Been adding these to my weekly routine and I'm already seeing results. Endurance is up, getting stronger, and I'm finally on track to hit my goal weight.",
-    tag: "228K Community",
+    tag: "230K Community",
   },
   {
     name: "Hippy2021",
     handle: "@Hippy2021",
     rating: 5,
     text: "I'm 71. No shoulder pain, no back pain. Walk hours daily, hanging bars, swimming every day. Daily stretching did all of this. This channel is a reminder of what most people ignore.",
-    tag: "228K Community",
+    tag: "230K Community",
   },
   {
     name: "Chuck F.",
     handle: "@chuckf4333",
     rating: 5,
     text: "Well produced, no unnecessary fluff. I'm already recommending this to my patients who sit at a computer all day. 45 years of chiropractic practice — this is exactly what people need.",
-    tag: "228K Community",
+    tag: "230K Community",
   },
   {
     name: "Vital After 50",
     handle: "@VitalAfter50",
     rating: 5,
     text: "Amazing how one simple movement can improve grip strength, posture, core stability, and even mental resilience. The tips on avoiding mistakes and progression are super helpful. Adding this to my routine.",
-    tag: "228K Community",
+    tag: "230K Community",
   },
   {
     name: "Jemez F.",
     handle: "@jemezfun9767",
     rating: 5,
     text: "37 years sitting at a desk. Started walking 2 miles a day, squats, lunges, and daily stretches after finding this channel. I'm 59 and finally feel like I'm in control of my body again.",
-    tag: "228K Community",
+    tag: "230K Community",
   },
 ];
 
@@ -132,7 +132,8 @@ export default function TestimonialsSection() {
         </p>
 
         {/* Toggle */}
-        <div className="inline-flex mt-8 border-[3px] border-black rounded-full overflow-hidden"
+        <div
+          className="inline-flex mt-8 border-[3px] border-black rounded-full overflow-hidden"
           style={{ boxShadow: "4px 4px 0px #000000" }}
         >
           <button

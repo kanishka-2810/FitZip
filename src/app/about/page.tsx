@@ -5,9 +5,9 @@ import Link from "next/link";
 import Footer from "@/components/footer";
 
 const TICKER_WORDS = [
-  "228K SUBSCRIBERS", "3+ YEARS FULL TIME", "159 VIDEOS", "22M+ VIEWS",
+  "230K SUBSCRIBERS", "3+ YEARS FULL TIME", "159 VIDEOS", "22M+ VIEWS",
   "NO GYM NEEDED", "BODYWEIGHT ONLY", "JOINT FRIENDLY", "REAL RESULTS",
-  "228K SUBSCRIBERS", "3+ YEARS FULL TIME", "159 VIDEOS", "22M+ VIEWS",
+  "230K SUBSCRIBERS", "3+ YEARS FULL TIME", "159 VIDEOS", "22M+ VIEWS",
   "NO GYM NEEDED", "BODYWEIGHT ONLY", "JOINT FRIENDLY", "REAL RESULTS",
 ];
 
@@ -35,7 +35,7 @@ const BELIEFS = [
 ];
 
 const STATS = [
-  ["228K+", "YouTube Subscribers"],
+  ["230K+", "YouTube Subscribers"],
   ["160+", "Videos Published"],
   ["22M+", "Total Views"],
   ["3 Yrs+", "Full-Time Creator"],
@@ -79,7 +79,7 @@ export default function AboutPage() {
               className="text-white/60 text-sm md:text-base mt-6 max-w-lg mx-auto"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
-              Full-time fitness brand. Functional fitness coaching. The brand that made 228,000 people look and feel the way they wanted without needing a bunch of equipments.
+              Full-time fitness brand. Functional fitness coaching. The brand that made 230,000 people look and feel the way they wanted without needing a bunch of equipments.
             </p>
           </div>
         </div> 
@@ -150,7 +150,7 @@ export default function AboutPage() {
               className="text-black/60 text-sm md:text-base leading-relaxed"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
-              In just three years, FitZip built one of the fastest-growing bodyweight fitness channels on YouTube — growing to over 228,000 subscribers and 22 million views without ever stepping foot in a commercial gym on camera.
+              In just three years, FitZip built one of the fastest-growing bodyweight fitness channels on YouTube — growing to over 230,000 subscribers and 22 million views without ever stepping foot in a commercial gym on camera.
             </p>
 
             <p
@@ -261,7 +261,7 @@ export default function AboutPage() {
               className="text-3xl md:text-5xl font-black uppercase text-black leading-tight"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
-              228K+ People Can&apos;t
+              230K+ People Can&apos;t
               <br />
               <span className="bg-[#CC0000] text-white px-2 inline-block">Be Wrong.</span>
             </h2>
@@ -306,7 +306,7 @@ export default function AboutPage() {
                 className="text-white/70 text-xs uppercase tracking-widest mb-4"
                 style={{ fontFamily: "var(--font-montserrat)" }}
               >
-                @fitzip · 228K+ subscribers · 160+ videos
+                @fitzip · 230K+ subscribers · 160+ videos
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-2">
                 {["New videos every week", "Science-backed content", "100% free"].map((pill) => (

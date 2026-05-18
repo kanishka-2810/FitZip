@@ -32,14 +32,14 @@ const SLIDES = [
 // Doubled for marquee loop
 const TICKER = [
   "TRAIN ANYWHERE",
-  "228K SUBSCRIBERS",
+  "230K SUBSCRIBERS",
   "PROVEN RESULTS",
   "NO GYM NEEDED",
   "BUILD REAL STRENGTH",
   "JOINT HEALTH FOCUS",
   "FEEL STRONGER",
   "TRAIN ANYWHERE",
-  "228K SUBSCRIBERS",
+  "230K SUBSCRIBERS",
   "PROVEN RESULTS",
   "NO GYM NEEDED",
   "BUILD REAL STRENGTH",
@@ -49,20 +49,28 @@ const TICKER = [
 
 const TICKER_ICONS = [
   { icon: "✓", label: "TRAIN ANYWHERE" },
-  { icon: "♥", label: "228K SUBSCRIBERS" },
+  { icon: "♥", label: "230K SUBSCRIBERS" },
   { icon: "★", label: "PROVEN RESULTS" },
   { icon: "⬤", label: "NO GYM NEEDED" },
 ];
 
 // Double for seamless loop
-const TICKER_DOUBLED = [...TICKER_ICONS, ...TICKER_ICONS, ...TICKER_ICONS, ...TICKER_ICONS];
+const TICKER_DOUBLED = [
+  ...TICKER_ICONS,
+  ...TICKER_ICONS,
+  ...TICKER_ICONS,
+  ...TICKER_ICONS,
+];
 
 export default function OurStorySection() {
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
   const prev = () => setCurrent((c) => (c - 1 + SLIDES.length) % SLIDES.length);
-  const next = useCallback(() => setCurrent((c) => (c + 1) % SLIDES.length), []);
+  const next = useCallback(
+    () => setCurrent((c) => (c + 1) % SLIDES.length),
+    [],
+  );
 
   useEffect(() => {
     if (isPaused) return;
@@ -75,12 +83,23 @@ export default function OurStorySection() {
   return (
     <>
       {/* ── Red banner ── */}
-      <section className="w-full py-14 md:py-20 px-4 border-t-4 border-black text-center" style={{ background: "radial-gradient(ellipse at center, #ff1a1a 0%, #CC0000 40%, #6b0000 100%)" }}>
+      <section
+        className="w-full py-14 md:py-20 px-4 border-t-4 border-black text-center"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, #ff1a1a 0%, #CC0000 40%, #6b0000 100%)",
+        }}
+      >
         <h2
           className="text-3xl md:text-6xl lg:text-7xl font-black uppercase text-white leading-tight tracking-tight max-w-4xl mx-auto"
-          style={{ fontFamily: "var(--font-poppins), sans-serif", textShadow: "0 4px 24px rgba(0,0,0,0.5)" }}
+          style={{
+            fontFamily: "var(--font-poppins), sans-serif",
+            textShadow: "0 4px 24px rgba(0,0,0,0.5)",
+          }}
         >
-          We Make Fitness Easy,<br />Not Complicated.
+          We Make Fitness Easy,
+          <br />
+          Not Complicated.
         </h2>
         <div className="mt-8">
           <Link
@@ -94,7 +113,8 @@ export default function OurStorySection() {
               (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "5px 5px 0px #000000";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow =
+                "5px 5px 0px #000000";
             }}
           >
             Our Story
@@ -125,7 +145,11 @@ export default function OurStorySection() {
         {/* Slide character */}
         <div className="absolute inset-0 flex items-end justify-center pointer-events-none">
           <Image
-            src={slide.id === 1 ? "/muscle-character/gemini-muscle-person.png" : "/muscle-character/food-muscle-character.png"}
+            src={
+              slide.id === 1
+                ? "/muscle-character/gemini-muscle-person.png"
+                : "/muscle-character/food-muscle-character.png"
+            }
             alt={slide.id === 1 ? "Workout character" : "Nutrition character"}
             width={340}
             height={420}
@@ -195,7 +219,8 @@ export default function OurStorySection() {
                 (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "3px 3px 0px #CC0000";
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow =
+                  "3px 3px 0px #CC0000";
               }}
             >
               {slide.cta}
@@ -209,24 +234,48 @@ export default function OurStorySection() {
             onClick={prev}
             className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-white border-[3px] border-black flex items-center justify-center text-black transition-all duration-200 hover:bg-[#CC0000] hover:text-white"
             style={{ boxShadow: "3px 3px 0px #000000" }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.boxShadow = "none"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.boxShadow = "3px 3px 0px #000000"; }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.boxShadow = "none";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.boxShadow =
+                "3px 3px 0px #000000";
+            }}
             aria-label="Previous"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2.5}
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
           </button>
           <button
             onClick={() => setIsPaused((p) => !p)}
             className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-[#CC0000] border-[3px] border-black flex items-center justify-center text-white transition-all duration-200 hover:bg-black"
             style={{ boxShadow: "3px 3px 0px #000000" }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.boxShadow = "none"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.boxShadow = "3px 3px 0px #000000"; }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.boxShadow = "none";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.boxShadow =
+                "3px 3px 0px #000000";
+            }}
             aria-label={isPaused ? "Play" : "Pause"}
           >
             {isPaused ? (
-              <svg className="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-4 h-4 ml-0.5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path d="M8 5v14l11-7z" />
               </svg>
             ) : (
@@ -239,16 +288,30 @@ export default function OurStorySection() {
             onClick={next}
             className="w-9 h-9 md:w-11 md:h-11 rounded-full bg-white border-[3px] border-black flex items-center justify-center text-black transition-all duration-200 hover:bg-[#CC0000] hover:text-white"
             style={{ boxShadow: "3px 3px 0px #000000" }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.boxShadow = "none"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.boxShadow = "3px 3px 0px #000000"; }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.boxShadow = "none";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.boxShadow =
+                "3px 3px 0px #000000";
+            }}
             aria-label="Next"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2.5}
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </button>
         </div>
-
       </section>
 
       {/* ── Ticker bar ── */}

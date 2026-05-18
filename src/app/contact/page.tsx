@@ -15,8 +15,18 @@ const TOPICS = [
 const INFO_CARDS = [
   {
     icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      <svg
+        className="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        />
       </svg>
     ),
     label: "Email Us",
@@ -30,13 +40,23 @@ const INFO_CARDS = [
       </svg>
     ),
     label: "YouTube",
-    value: "@fitzip · 228K + Subscribers",
+    value: "@fitzip · 230K + Subscribers",
     href: "https://www.youtube.com/@fitzip",
   },
   {
     icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <svg
+        className="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
       </svg>
     ),
     label: "Response Time",
@@ -45,9 +65,23 @@ const INFO_CARDS = [
   },
   {
     icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      <svg
+        className="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={2}
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+        />
       </svg>
     ),
     label: "Based In",
@@ -57,22 +91,40 @@ const INFO_CARDS = [
 ];
 
 const TICKER_WORDS = [
-  "GET IN TOUCH", "WE REPLY FAST", "NO SPAM", "REAL SUPPORT",
-  "ORDER ISSUES", "REFUNDS", "COLLABS", "QUESTIONS",
-  "GET IN TOUCH", "WE REPLY FAST", "NO SPAM", "REAL SUPPORT",
-  "ORDER ISSUES", "REFUNDS", "COLLABS", "QUESTIONS",
+  "GET IN TOUCH",
+  "WE REPLY FAST",
+  "NO SPAM",
+  "REAL SUPPORT",
+  "ORDER ISSUES",
+  "REFUNDS",
+  "COLLABS",
+  "QUESTIONS",
+  "GET IN TOUCH",
+  "WE REPLY FAST",
+  "NO SPAM",
+  "REAL SUPPORT",
+  "ORDER ISSUES",
+  "REFUNDS",
+  "COLLABS",
+  "QUESTIONS",
 ];
 
 type FormState = "idle" | "loading" | "success" | "error";
 
-
-function TopicDropdown({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+function TopicDropdown({
+  value,
+  onChange,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+}) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      if (ref.current && !ref.current.contains(e.target as Node))
+        setOpen(false);
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
@@ -91,12 +143,21 @@ function TopicDropdown({ value, onChange }: { value: string; onChange: (v: strin
         <span className={value ? "text-black" : "text-black/25"}>
           {value || "Select a topic..."}
         </span>
-        <div className={`shrink-0 w-6 h-6 border-2 border-black flex items-center justify-center transition-colors duration-150 ${open ? "bg-[#CC0000] border-[#CC0000]" : "bg-black"}`}>
+        <div
+          className={`shrink-0 w-6 h-6 border-2 border-black flex items-center justify-center transition-colors duration-150 ${open ? "bg-[#CC0000] border-[#CC0000]" : "bg-black"}`}
+        >
           <svg
             className={`w-3 h-3 text-white transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-            fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={3}
+            viewBox="0 0 24 24"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19 9l-7 7-7-7"
+            />
           </svg>
         </div>
       </button>
@@ -110,7 +171,10 @@ function TopicDropdown({ value, onChange }: { value: string; onChange: (v: strin
             <button
               key={t}
               type="button"
-              onClick={() => { onChange(t); setOpen(false); }}
+              onClick={() => {
+                onChange(t);
+                setOpen(false);
+              }}
               className={`w-full text-left px-4 py-3 text-sm font-black uppercase tracking-wide transition-colors duration-100 flex items-center gap-3
                 ${value === t ? "bg-[#CC0000] text-white" : "text-black hover:bg-black hover:text-white"}
                 ${i !== TOPICS.length - 1 ? "border-b-2 border-black/10" : ""}
@@ -118,8 +182,18 @@ function TopicDropdown({ value, onChange }: { value: string; onChange: (v: strin
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               {value === t && (
-                <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                <svg
+                  className="w-3 h-3 shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={3}
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
               )}
               {t}
@@ -142,7 +216,7 @@ export default function ContactPage() {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -169,7 +243,9 @@ export default function ContactPage() {
         setFormState("error");
       }
     } catch {
-      setErrorMsg("Something went wrong. Please email us directly at erooney729@gmail.com.");
+      setErrorMsg(
+        "Something went wrong. Please email us directly at erooney729@gmail.com.",
+      );
       setFormState("error");
     }
   };
@@ -181,7 +257,12 @@ export default function ContactPage() {
         <div className="relative w-full flex items-center justify-center px-6 py-12 md:py-20 overflow-hidden">
           <p
             className="absolute inset-0 flex items-center justify-center text-white/[0.07] font-black uppercase select-none pointer-events-none leading-none"
-            style={{ fontFamily: "var(--font-poppins)", fontSize: "clamp(72px, 16vw, 200px)", fontWeight: 900, whiteSpace: "nowrap" }}
+            style={{
+              fontFamily: "var(--font-poppins)",
+              fontSize: "clamp(72px, 16vw, 200px)",
+              fontWeight: 900,
+              whiteSpace: "nowrap",
+            }}
           >
             CONTACT
           </p>
@@ -198,13 +279,16 @@ export default function ContactPage() {
             >
               WE&apos;D LOVE TO
               <br />
-              <span className="bg-black text-white px-2 inline-block">HEAR FROM YOU</span>
+              <span className="bg-black text-white px-2 inline-block">
+                HEAR FROM YOU
+              </span>
             </h1>
             <p
               className="text-white/60 text-sm md:text-base mt-5 max-w-md mx-auto"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
-              Order issue, program question, or just want to say hi — drop us a message and we&apos;ll get back to you within 2 business days.
+              Order issue, program question, or just want to say hi — drop us a
+              message and we&apos;ll get back to you within 2 business days.
             </p>
           </div>
         </div>
@@ -229,7 +313,6 @@ export default function ContactPage() {
       {/* ── MAIN CONTENT ── */}
       <section className="w-full bg-white border-b-4 border-black py-14 md:py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-10 md:gap-16 items-start">
-
           {/* ── LEFT: Info cards ── */}
           <div className="lg:col-span-2 flex flex-col gap-5">
             <div>
@@ -268,8 +351,14 @@ export default function ContactPage() {
                   {card.href ? (
                     <a
                       href={card.href}
-                      target={card.href.startsWith("http") ? "_blank" : undefined}
-                      rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      target={
+                        card.href.startsWith("http") ? "_blank" : undefined
+                      }
+                      rel={
+                        card.href.startsWith("http")
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
                       className="text-sm font-black text-black hover:text-[#CC0000] transition-colors duration-150 underline underline-offset-2"
                       style={{ fontFamily: "var(--font-montserrat)" }}
                     >
@@ -323,7 +412,7 @@ export default function ContactPage() {
                 className="text-sm font-black uppercase text-black mb-3 leading-tight"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
-                Join 228K+ people who train smarter.
+                Join 230K+ people who train smarter.
               </p>
               <Link
                 href="https://fitzip-newsletter-069955.beehiiv.com/subscribe"
@@ -359,8 +448,18 @@ export default function ContactPage() {
               {formState === "success" ? (
                 <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
                   <div className="w-14 h-14 bg-[#CC0000] border-[3px] border-black flex items-center justify-center">
-                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-7 h-7 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={3}
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   </div>
                   <h4
@@ -373,7 +472,8 @@ export default function ContactPage() {
                     className="text-black/50 text-sm max-w-xs"
                     style={{ fontFamily: "var(--font-montserrat)" }}
                   >
-                    We&apos;ll get back to you at your email within 2 business days.
+                    We&apos;ll get back to you at your email within 2 business
+                    days.
                   </p>
                   <button
                     onClick={() => setFormState("idle")}
@@ -435,7 +535,9 @@ export default function ContactPage() {
                     </label>
                     <TopicDropdown
                       value={form.topic}
-                      onChange={(v) => setForm((prev) => ({ ...prev, topic: v }))}
+                      onChange={(v) =>
+                        setForm((prev) => ({ ...prev, topic: v }))
+                      }
                     />
                   </div>
 
@@ -474,7 +576,10 @@ export default function ContactPage() {
                     type="submit"
                     disabled={formState === "loading"}
                     className="w-full bg-[#CC0000] text-white font-black uppercase tracking-widest text-sm py-4 border-[3px] border-black transition-all duration-200 hover:bg-black disabled:opacity-60 disabled:cursor-not-allowed mt-1"
-                    style={{ fontFamily: "var(--font-montserrat)", boxShadow: "5px 5px 0px #000000" }}
+                    style={{
+                      fontFamily: "var(--font-montserrat)",
+                      boxShadow: "5px 5px 0px #000000",
+                    }}
                   >
                     {formState === "loading" ? "Sending..." : "Send Message →"}
                   </button>
