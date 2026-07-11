@@ -1,12 +1,36 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { CheckCircle } from "lucide-react";
+import dbConnect from "@/lib/db";
+import stripe from "@/lib/stripe";
+import Order from "@/model/Order";
 
 export default async function CheckoutSuccessPage({
   searchParams,
 }: {
   searchParams: Promise<{ session_id?: string }>;
 }) {
-    const {session_id} = await searchParams;
+  const { session_id } = await searchParams;
+
+  if (!session_id) {
+    redirect("/products");
+  }
+
+  await dbConnect();
+
+  const order = await Order.findOne({ stripeSessionId: session_id });
+  if (!order) {
+    redirect("/products");
+  }
+
+  const session = await stripe.checkout.sessions
+    .retrieve(session_id)
+    .catch(() => null);
+
+  if (!session || session.payment_status !== "paid") {
+    redirect("/products");
+  }
+
   return (
     <div className="min-h-screen bg-white flex items-center justify-center px-4">
       <div className="text-center max-w-md">
@@ -22,8 +46,12 @@ export default async function CheckoutSuccessPage({
             Session ID: {session_id}
           </p>
         )} */}
-        <p className="text-gray-600 mb-8">
+        <p className="text-gray-600 mb-2">
           Check your email for download links and receipt details.
+        </p>
+
+        <p className="text-gray-600 mb-8">
+          If you don’t see the product in your inbox, check the spam folder.
         </p>
 
         <div className="flex flex-col gap-3">
