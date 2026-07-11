@@ -72,7 +72,7 @@ export const PRODUCT_CONTENT: Record<string, ProductContent> = {
       { name: "David K.", stars: 5, text: "Notifications are always on for this channel. The content keeps getting better and the ebook took everything to the next level for me. Trying to hit 10,000 steps a day now because of the advice here." },
       { name: "Ryan T.", stars: 5, text: "Bought the program Friday night, read the whole PDF by Saturday morning. Clean layout, no filler, every exercise has a real reason behind it. Best money I've spent on fitness in years." },
       { name: "Sandra M.", stars: 5, text: "Three weeks in and my lower back pain is basically gone. Was skeptical about bodyweight-only but the progression is smart — it actually builds on itself week by week. Didn't expect this." },
-      { name: "Pete H.", stars: 5, text: "I've bought programs from big-name trainers that were overpriced and hollow. This is the opposite. No gym, no equipment, and I'm seeing more progress than I did in 6 months at the gym." },
+      { name: "Pete H.", stars: 5, text: "Wasn't sure what to expect but gave it a shot. Two months in and my knees don't ache after workouts anymore. Simple movements, clear instructions. Worth it." },
     ],
   },
 
