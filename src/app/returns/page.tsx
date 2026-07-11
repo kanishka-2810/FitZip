@@ -6,13 +6,13 @@ const SECTIONS = [
     body: [
       "All FitZip products are digital downloads (PDF files) delivered instantly after purchase. Because the product is delivered electronically and cannot be returned, we do not offer refunds once the file has been accessed or downloaded.",
       "Please read all product descriptions carefully before purchasing.",
+      "If you don’t see the product in your inbox, check the spam folder."
     ],
   },
   {
     title: "Exceptions",
     body: [
       "We will issue a full refund in the following circumstances:",
-      "• You were charged but never received access to the download link.",
       "• You were charged more than once for the same product due to a technical error.",
       "• The file is corrupt or unreadable and we are unable to provide a working replacement.",
       "Refund requests must be submitted within 7 days of purchase.",
@@ -21,6 +21,7 @@ const SECTIONS = [
   {
     title: "How To Request a Refund",
     body: [
+      "Please check the spam folder before requesting a refund.",
       "Email us at erooney729@gmail.com with the subject line 'Refund Request' and include:",
       "• Your full name",
       "• Order confirmation number or receipt",
