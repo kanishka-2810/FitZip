@@ -137,7 +137,7 @@ Mail to both addresses lands in one Google Workspace inbox. Resend only sends; d
 
 | Task | Where |
 | --- | --- |
-| Change a price | `price` on the product in MongoDB. No deploy needed. |
+| Change a price | `price` on the product in MongoDB. Checkout and the product page update at once. Redeploy so the home and `/products` pages show it too, because they are built at deploy time. |
 | Edit sales copy, FAQs or reviews | `src/lib/product-content.ts` |
 | Add a blog post | `src/lib/blog-data.ts` |
 | Change the home page YouTube videos | `videoId` values in `src/components/youtube-section.tsx` |
