@@ -139,7 +139,7 @@ export default function Footer() {
                 <YoutubeIcon />
               </Link>
               <Link
-                href="mailto:erooney729@gmail.com"
+                href="mailto:support@fittzip.com"
                 className="text-white hover:text-black transition-colors duration-150"
                 aria-label="Email"
               >

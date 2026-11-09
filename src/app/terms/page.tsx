@@ -32,7 +32,7 @@ const SECTIONS = [
     title: "Digital Delivery",
     body: [
       "After a successful purchase, a download link will be sent to the email address provided at checkout. Please ensure your email address is correct before completing your order.",
-      "If you do not receive your download link within 24 hours, contact us at erooney729@gmail.com.",
+      "If you do not receive your download link within 24 hours, contact us at support@fittzip.com.",
     ],
   },
   {
@@ -74,7 +74,7 @@ const SECTIONS = [
   {
     title: "Contact",
     body: [
-      "For any questions regarding these terms, please contact us at erooney729@gmail.com.",
+      "For any questions regarding these terms, please contact us at support@fittzip.com.",
     ],
   },
 ];
@@ -101,7 +101,7 @@ export default function TermsPage() {
           className="text-white/60 text-sm mt-4 max-w-md mx-auto"
           style={{ fontFamily: "var(--font-montserrat)" }}
         >
-          Last updated: April 2026
+          Last updated: November 2026
         </p>
       </section>
 

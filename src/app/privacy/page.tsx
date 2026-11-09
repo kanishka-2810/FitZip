@@ -5,7 +5,7 @@ const SECTIONS = [
     title: "Who We Are",
     body: [
       "FitZip is a digital fitness brand based in the United States. We sell digital workout and nutrition programs online at fitzipp.com.",
-      "If you have questions about this policy, contact us at erooney729@gmail.com.",
+      "If you have questions about this policy, contact us at support@fittzip.com.",
     ],
   },
   {
@@ -34,6 +34,9 @@ const SECTIONS = [
       "• Stripe — payment processing (stripe.com/privacy)",
       "• Beehiiv — newsletter platform",
       "• Google Analytics — website analytics",
+      "• Resend — email delivery",
+      "• Google Workspace — customer support email",
+      "• Secure hosting and database providers — website and order data storage",
       "Each of these services has its own privacy policy governing how they handle your data.",
     ],
   },
@@ -46,13 +49,13 @@ const SECTIONS = [
   {
     title: "Data Retention",
     body: [
-      "We retain your personal data only for as long as necessary to fulfil the purposes described in this policy, or as required by law. You may request deletion of your data at any time by emailing erooney729@gmail.com.",
+      "We retain your personal data only for as long as necessary to fulfil the purposes described in this policy, or as required by law. You may request deletion of your data at any time by emailing support@fittzip.com.",
     ],
   },
   {
     title: "Your Rights",
     body: [
-      "Depending on your location, you may have rights regarding your personal data, including the right to access, correct, or delete it. To exercise any of these rights, please contact us at erooney729@gmail.com.",
+      "Depending on your location, you may have rights regarding your personal data, including the right to access, correct, or delete it. To exercise any of these rights, please contact us at support@fittzip.com.",
     ],
   },
   {
@@ -64,7 +67,7 @@ const SECTIONS = [
   {
     title: "Contact",
     body: [
-      "For any privacy-related questions, email us at erooney729@gmail.com.",
+      "For any privacy-related questions, email us at support@fittzip.com.",
     ],
   },
 ];
@@ -91,7 +94,7 @@ export default function PrivacyPage() {
           className="text-white/60 text-sm mt-4 max-w-md mx-auto"
           style={{ fontFamily: "var(--font-montserrat)" }}
         >
-          Last updated: April 2026
+          Last updated: November 2026
         </p>
       </section>
 
