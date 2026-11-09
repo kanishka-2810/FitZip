@@ -30,8 +30,8 @@ const INFO_CARDS = [
       </svg>
     ),
     label: "Email Us",
-    value: "erooney729@gmail.com",
-    href: "mailto:erooney729@gmail.com",
+    value: "support@fittzip.com",
+    href: "mailto:support@fittzip.com",
   },
   {
     icon: (
@@ -244,7 +244,7 @@ export default function ContactPage() {
       }
     } catch {
       setErrorMsg(
-        "Something went wrong. Please email us directly at erooney729@gmail.com.",
+        "Something went wrong. Please email us directly at support@fittzip.com.",
       );
       setFormState("error");
     }

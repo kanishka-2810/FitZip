@@ -22,7 +22,7 @@ const SECTIONS = [
     title: "How To Request a Refund",
     body: [
       "Please check the spam folder before requesting a refund.",
-      "Email us at erooney729@gmail.com with the subject line 'Refund Request' and include:",
+      "Email us at support@fittzip.com with the subject line 'Refund Request' and include:",
       "• Your full name",
       "• Order confirmation number or receipt",
       "• A brief description of the issue",
@@ -38,7 +38,7 @@ const SECTIONS = [
   {
     title: "Contact",
     body: [
-      "Questions? Email us at erooney729@gmail.com and we'll get back to you as quickly as possible.",
+      "Questions? Email us at support@fittzip.com and we'll get back to you as quickly as possible.",
     ],
   },
 ];
@@ -65,7 +65,7 @@ export default function ReturnsPage() {
           className="text-white/60 text-sm mt-4 max-w-md mx-auto"
           style={{ fontFamily: "var(--font-montserrat)" }}
         >
-          Last updated: April 2026
+          Last updated: November 2026
         </p>
       </section>
 

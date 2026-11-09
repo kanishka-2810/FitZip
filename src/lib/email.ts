@@ -10,13 +10,19 @@ const brand = {
   fontStack: "Arial, Helvetica, sans-serif",
 };
 
-// ─── Email transporter ─────────────────────────────────────────────────────────
-const createTransporter = () => {
+// ─── Sender addresses ──────────────────────────────────────────────────────────
+export const ORDERS_EMAIL = "orders@fittzip.com";
+export const SUPPORT_EMAIL = "support@fittzip.com";
+
+// ─── Email transporter (Resend SMTP) ───────────────────────────────────────────
+export const createTransporter = () => {
   return nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.resend.com",
+    port: 465,
+    secure: true,
     auth: {
-      user: process.env.CONTACT_EMAIL,
-      pass: process.env.CONTACT_EMAIL_PASSWORD,
+      user: "resend",
+      pass: process.env.RESEND_API_KEY,
     },
   });
 };
@@ -204,7 +210,7 @@ function buildPurchaseEmail(productName: string, downloadUrl: string) {
             <table cellpadding="0" cellspacing="0">
               <tr>
                 <td style="background:${brand.black};border:3px solid ${brand.black}">
-                  <a href="mailto:${process.env.CONTACT_EMAIL}?subject=Download Issue - ${productName}" style="display:inline-block;padding:14px 28px;color:${brand.white};font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:3px;text-decoration:none">
+                  <a href="mailto:${SUPPORT_EMAIL}?subject=Download Issue - ${productName}" style="display:inline-block;padding:14px 28px;color:${brand.white};font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:3px;text-decoration:none">
                     NEED HELP? CONTACT SUPPORT →
                   </a>
                 </td>
@@ -229,7 +235,7 @@ function buildPurchaseEmail(productName: string, downloadUrl: string) {
               <tr>
                 <td colspan="2" style="padding-top:12px;border-top:1px solid rgba(255,255,255,0.1)">
                   <p style="margin:8px 0 0;color:rgba(255,255,255,0.25);font-size:10px">
-                    This is an automated email. Please do not reply to this email.
+                    Questions? Just reply to this email and our support team will help.
                   </p>
                 </td>
               </tr>
@@ -255,8 +261,9 @@ export async function sendPurchaseConfirmationEmail(
 
   // 1. Customer download email — critical, let this throw if it fails
   await transporter.sendMail({
-    from: `"FitZip" <${process.env.CONTACT_EMAIL}>`,
+    from: `"FitZip" <${ORDERS_EMAIL}>`,
     to: customerEmail,
+    replyTo: SUPPORT_EMAIL,
     subject: `Your ${productName} is ready for download — FitZip`,
     html: buildPurchaseEmail(productName, downloadUrl),
   });
@@ -265,8 +272,8 @@ export async function sendPurchaseConfirmationEmail(
   // 2. Eric's sales notification — non-critical, never block customer delivery
   // try {
   //   await transporter.sendMail({
-  //     from: `"FitZip Sales" <${process.env.CONTACT_EMAIL}>`,
-  //     to: process.env.CONTACT_EMAIL,
+  //     from: `"FitZip Sales" <${ORDERS_EMAIL}>`,
+  //     to: SUPPORT_EMAIL,
   //     subject: `💰 New Sale — ${productName} ($${amount.toFixed(2)})`,
   //     html: buildAdminSaleEmail(customerEmail, productName, amount),
   //   });

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { createTransporter, ORDERS_EMAIL, SUPPORT_EMAIL } from "@/lib/email";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -232,7 +232,7 @@ function buildUserEmail(name: string, topic: string) {
               <tr>
                 <td colspan="2" style="padding-top:12px;border-top:1px solid rgba(255,255,255,0.1)">
                   <p style="margin:8px 0 0;color:rgba(255,255,255,0.25);font-size:10px">
-                    This is an automated confirmation. Please do not reply to this email.
+                    This is an automated confirmation. You can reply to this email if you need to add anything.
                   </p>
                 </td>
               </tr>
@@ -260,18 +260,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid email address." }, { status: 400 });
     }
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.CONTACT_EMAIL,
-        pass: process.env.CONTACT_EMAIL_PASSWORD,
-      },
-    });
+    const transporter = createTransporter();
 
     // 1. Notify Eric
     await transporter.sendMail({
-      from: `"FitZip Contact" <${process.env.CONTACT_EMAIL}>`,
-      to: process.env.CONTACT_EMAIL,
+      from: `"FitZip Contact" <${ORDERS_EMAIL}>`,
+      to: SUPPORT_EMAIL,
       replyTo: email,
       subject: `[FitZip] New Message — ${topic}`,
       html: buildAdminEmail(name, email, topic, message),
@@ -279,7 +273,7 @@ export async function POST(req: NextRequest) {
 
     // 2. Auto-reply to user
     await transporter.sendMail({
-      from: `"FitZip" <${process.env.CONTACT_EMAIL}>`,
+      from: `"FitZip" <${SUPPORT_EMAIL}>`,
       to: email,
       subject: "We got your message — FitZip",
       html: buildUserEmail(name, topic),

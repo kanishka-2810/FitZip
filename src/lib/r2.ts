@@ -26,9 +26,13 @@ const s3Client = new S3Client({
 
 export async function generateDownloadUrl(fileKey: string): Promise<string> {
   try {
+    const fileName = fileKey.split("/").pop()?.replace(/["\\]/g, "") || "download.pdf";
+
     const command = new GetObjectCommand({
       Bucket: R2_BUCKET_NAME,
       Key: fileKey,
+      // Force a direct download instead of opening the PDF in the browser
+      ResponseContentDisposition: `attachment; filename="${fileName}"`,
     });
 
     const signedUrl = await getSignedUrl(s3Client, command, { expiresIn: 300 }); // 5 min — generated fresh on every click
